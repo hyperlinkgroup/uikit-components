@@ -16,13 +16,13 @@ It is made by **[SPACE SQUAD](https://www.spacesquad.de)**! We make great softwa
 ## Features
 - [x] 
 - [x] 
-- [y]x
+- [x]
 
 ---
 
 ## Installation
 ##### Requirements
-- iOS 14.0+ / macOS 10.15
+- iOS 15.0+
 - Xcode 13+
 - Swift 5+
 
