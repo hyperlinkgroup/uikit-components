@@ -41,7 +41,7 @@ public class BaseTextField: UITextField {
         self.setTextPadding(left: textPaddingLeft, right: textPaddingRight)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     

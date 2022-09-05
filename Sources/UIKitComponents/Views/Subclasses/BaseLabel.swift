@@ -10,7 +10,7 @@ import UIKit
 /**
  Subclass for a UILabel.
  */
-public class BaseLabel: UILabel {
+open class BaseLabel: UILabel {
     
     public init(text: String? = nil,
                 textColor: UIColor? = .label,
@@ -32,23 +32,23 @@ public class BaseLabel: UILabel {
         self.isUserInteractionEnabled = true
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
     
     
-    var textInsets = UIEdgeInsets.zero {
+    public var textInsets = UIEdgeInsets.zero {
         didSet { invalidateIntrinsicContentSize() }
     }
     
-    override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+    public override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         let textRect = super.textRect(forBounds: bounds, limitedToNumberOfLines: numberOfLines)
         let invertedInsets = UIEdgeInsets(top: -textInsets.top, left: -textInsets.left, bottom: -textInsets.bottom, right: -textInsets.right)
         return textRect.inset(by: invertedInsets)
     }
     
-    override func drawText(in rect: CGRect) {
+    public override func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: textInsets))
     }
 }

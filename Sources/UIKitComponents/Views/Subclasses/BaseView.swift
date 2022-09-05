@@ -24,7 +24,7 @@ public class BaseView: UIView {
         self.isUserInteractionEnabled = true
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     

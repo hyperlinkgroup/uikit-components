@@ -43,6 +43,8 @@ public extension UIView {
                 width: CGFloat = 0,
                 height: CGFloat = 0) {
         
+        translatesAutoresizingMaskIntoConstraints = false
+        
         if let centerX = centerX {
             let centerX = centerXAnchor.constraint(equalTo: centerX, constant: paddingCenterX)
             centerX.isActive = true
@@ -86,8 +88,6 @@ public extension UIView {
             let height = heightAnchor.constraint(equalToConstant: height)
             height.isActive = true
         }
-        
-        translatesAutoresizingMaskIntoConstraints = false
     }
     
     /**
@@ -102,6 +102,8 @@ public extension UIView {
                        paddingLeft: CGFloat = 0,
                        paddingBottom: CGFloat = 0,
                        paddingRight: CGFloat = 0) {
+        
+        translatesAutoresizingMaskIntoConstraints = false
         
         if let superviewTopAnchor = superview?.topAnchor {
             let top = topAnchor.constraint(equalTo: superviewTopAnchor, constant: paddingTop)
@@ -126,8 +128,6 @@ public extension UIView {
             trailing.priority = UILayoutPriority(rawValue: 999)
             trailing.isActive = true
         }
-        
-        translatesAutoresizingMaskIntoConstraints = false
     }
     
     /**

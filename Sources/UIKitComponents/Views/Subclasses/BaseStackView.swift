@@ -27,7 +27,7 @@ public class BaseStackView: UIStackView {
         self.distribution = distribution
     }
     
-    required init(coder: NSCoder) {
+    required public init(coder: NSCoder) {
         super.init(coder: coder)
     }
     

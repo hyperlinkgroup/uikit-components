@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ButtonWithImage: UIButton {
+open class ButtonWithImage: UIButton {
     
     public override var isHighlighted: Bool {
         didSet {
@@ -41,7 +41,7 @@ public class ButtonWithImage: UIButton {
         self.layer.cornerRadius = cornerRadius
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     

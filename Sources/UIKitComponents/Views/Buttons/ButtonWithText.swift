@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ButtonWithText: UIButton {
+open class ButtonWithText: UIButton {
     
     override public var isHighlighted: Bool {
         didSet {
@@ -30,7 +30,9 @@ public class ButtonWithText: UIButton {
                 titleColor: UIColor? = .label,
                 titleAlignment: NSTextAlignment = .center,
                 font: UIFont,
-                numberOfLines: Int = 1) {
+                numberOfLines: Int = 1,
+                backgroundColor: UIColor? = nil,
+                cornerRadius: CGFloat = 0) {
         
         super.init(frame: .zero)
         
@@ -40,9 +42,12 @@ public class ButtonWithText: UIButton {
         self.titleLabel?.font = font
         self.titleLabel?.numberOfLines = numberOfLines
         self.titleLabel?.textAlignment = titleAlignment
+        
+        self.backgroundColor = backgroundColor
+        self.layer.cornerRadius = cornerRadius
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     

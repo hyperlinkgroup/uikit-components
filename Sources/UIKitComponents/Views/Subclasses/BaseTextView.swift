@@ -48,7 +48,7 @@ public class BaseTextView: UITextView, UITextViewDelegate {
         setPlaceholder()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         self.customTextColor = .label
         self.placeholder = ""
         
@@ -84,17 +84,17 @@ public class BaseTextView: UITextView, UITextViewDelegate {
     
     // MARK: - Delegate
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    public func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == placeholder {
             self.removePlaceholder()
         }
     }
     
-    func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         textIsValid.send(!textView.text.isEmpty)
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
+    public func textViewDidEndEditing(_ textView: UITextView) {
         if !textView.text.isEmpty { return }
         setPlaceholder()
     }
