@@ -16,6 +16,26 @@ class ViewVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemGroupedBackground
+        
+        setupElements()
+    }
+    
+    
+    
+    // MARK: - Variables
+    
+    private let imageWidth: CGFloat = 200
+    private let imageHeight: CGFloat = 150
+    
+    
+    
+    // MARK: - Elements
+    
+    private let baseView = BaseView(backgroundColor: .blue, cornerRadius: 12)
+    
+    private func setupElements() {
+        view.addSubview(baseView)
+        baseView.anchor(centerX: view.centerXAnchor, top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 24, width: imageWidth, height: imageHeight)
     }
     
 }

@@ -9,7 +9,11 @@ import UIKit
 import Combine
 
 /**
- Subclass for a BaseTextView.
+ Subclass for a UITextView.
+ 
+ We added an option to set a placeholder, which isn't built-in by Apple.
+ You can also subscribe to 'currentText' to read the user's input and to 'isEditing' to check whether the TextViews is being edited.
+ If you override the TextView's delegate in your view, the placeholder and the subscriber will no longer work and you need to add it yourself.
  */
 public class BaseTextView: UITextView, UITextViewDelegate {
     
@@ -21,8 +25,8 @@ public class BaseTextView: UITextView, UITextViewDelegate {
                 backgroundColor: UIColor = .clear,
                 cornerRadius: CGFloat = 0,
                 padding: CGFloat = 0,
-                isScrollable: Bool = false,
-                isEditable: Bool = false) {
+                isScrollable: Bool = true,
+                isEditable: Bool = true) {
         
         self.customTextColor = textColor
         self.placeholder = placeholder
@@ -59,10 +63,11 @@ public class BaseTextView: UITextView, UITextViewDelegate {
     
     // MARK: - Variables
     
-    let textIsValid = CurrentValueSubject<Bool, Never>(false)
+    public let currentText = CurrentValueSubject<String, Never>("")
+    public let isInEditMode = CurrentValueSubject<Bool, Never>(false)
     
-    let customTextColor: UIColor
-    let placeholder: String
+    private let customTextColor: UIColor
+    private let placeholder: String
     
     
     
@@ -85,16 +90,20 @@ public class BaseTextView: UITextView, UITextViewDelegate {
     // MARK: - Delegate
     
     public func textViewDidBeginEditing(_ textView: UITextView) {
+        isInEditMode.send(true)
+        
         if textView.text == placeholder {
             self.removePlaceholder()
         }
     }
     
     public func textViewDidChange(_ textView: UITextView) {
-        textIsValid.send(!textView.text.isEmpty)
+        currentText.send(textView.text)
     }
     
     public func textViewDidEndEditing(_ textView: UITextView) {
+        isInEditMode.send(false)
+        
         if !textView.text.isEmpty { return }
         setPlaceholder()
     }

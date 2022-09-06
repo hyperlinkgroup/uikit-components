@@ -24,17 +24,19 @@ class ImageViewVC: UIViewController {
     
     // MARK: - Variables
     
-    private let imageSize: CGFloat = 144
+    private let image = UIImage(named: "logo_spacesquad") ?? UIImage()
+    private let imageWidth: CGFloat = 200
+    private let imageHeight: CGFloat = 150
     
     
     
     // MARK: - Elements
     
-    private let imageView = BaseImageView(image: UIImage(), cornerRadius: 12, contentMode: .scaleAspectFill, isOriginal: true)
+    private lazy var imageView = BaseImageView(image: image, cornerRadius: 12, contentMode: .scaleAspectFill, isOriginal: true)
     
     private func setupElements() {
         view.addSubview(imageView)
-        imageView.anchor(centerX: view.centerXAnchor, top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 24, width: imageSize, height: imageSize)
+        imageView.anchor(centerX: view.centerXAnchor, top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 24, width: imageWidth, height: imageHeight)
     }
     
 }

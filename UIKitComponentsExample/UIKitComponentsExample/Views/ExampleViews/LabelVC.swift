@@ -24,7 +24,7 @@ class LabelVC: UIViewController {
     
     // MARK: - Variables
     
-    private let labelWidth: CGFloat = 96
+    private let labelWidth: CGFloat = 200
     private let labelHeight: CGFloat = 44
     
     
@@ -35,7 +35,6 @@ class LabelVC: UIViewController {
     
     private func setupElements() {
         view.addSubview(label)
-        
         label.anchor(centerX: view.centerXAnchor, top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 24, width: labelWidth, height: labelHeight)
     }
     
