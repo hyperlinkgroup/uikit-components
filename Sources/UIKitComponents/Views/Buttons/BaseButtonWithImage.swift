@@ -1,5 +1,5 @@
 //
-//  ButtonWithImage.swift
+//  BaseButtonWithImage.swift
 //  
 //
 //  Created by Kevin Waltz on 02.09.22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class ButtonWithImage: UIButton {
+open class BaseButtonWithImage: UIButton {
     
     public override var isHighlighted: Bool {
         didSet {

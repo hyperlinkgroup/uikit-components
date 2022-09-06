@@ -31,7 +31,7 @@ class ButtonTextVC: UIViewController {
     
     // MARK: - Elements
     
-    private lazy var buttonText = ButtonWithText(title: "Button", font: .systemFont(ofSize: 16, weight: .semibold), backgroundColor: .secondarySystemFill, cornerRadius: buttonHeight / 2)
+    private lazy var buttonText = BaseButtonWithText(title: "Button", font: .systemFont(ofSize: 16, weight: .semibold), backgroundColor: .secondarySystemFill, cornerRadius: buttonHeight / 2)
     
     private func setupElements() {
         view.addSubview(buttonText)

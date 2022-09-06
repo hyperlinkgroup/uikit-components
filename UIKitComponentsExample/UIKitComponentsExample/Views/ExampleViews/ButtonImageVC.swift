@@ -31,7 +31,7 @@ class ButtonImageVC: UIViewController {
     
     // MARK: - Elements
     
-    private lazy var buttonImage = ButtonWithImage(image: image, tintColor: .systemBlue, backgroundColor: .secondarySystemFill, cornerRadius: buttonSize / 2)
+    private lazy var buttonImage = BaseButtonWithImage(image: image, tintColor: .systemBlue, backgroundColor: .secondarySystemFill, cornerRadius: buttonSize / 2)
     
     private func setupElements() {
         view.addSubview(buttonImage)

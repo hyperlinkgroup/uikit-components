@@ -14,14 +14,14 @@ enum ExampleItem: Int, CaseIterable {
     
     var title: String {
         switch self {
-        case .buttonImage: return "Button (Image)"
-        case .buttonText: return "Button (Text)"
-        case .imageView: return "ImageView"
-        case .label: return "Label"
-        case .stackView: return "StackView"
-        case .textField: return "TextField"
-        case .textView: return "TextView"
-        case .view: return "View"
+        case .buttonImage: return "BaseButtonWithImage"
+        case .buttonText: return "BaseButtonWithText"
+        case .imageView: return "BaseImageView"
+        case .label: return "BaseLabel"
+        case .stackView: return "BaseStackView"
+        case .textField: return "BaseTextField"
+        case .textView: return "BaseTextView"
+        case .view: return "BaseView"
         }
     }
     

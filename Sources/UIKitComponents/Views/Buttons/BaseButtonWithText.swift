@@ -1,5 +1,5 @@
 //
-//  ButtonWithText.swift
+//  BaseButtonWithText.swift
 //  
 //
 //  Created by Kevin Waltz on 02.09.22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class ButtonWithText: UIButton {
+open class BaseButtonWithText: UIButton {
     
     override public var isHighlighted: Bool {
         didSet {
