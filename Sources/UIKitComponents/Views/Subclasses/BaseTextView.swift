@@ -104,7 +104,7 @@ public class BaseTextView: UITextView, UITextViewDelegate {
     public func textViewDidEndEditing(_ textView: UITextView) {
         isInEditMode.send(false)
         
-        if !textView.text.isEmpty { return }
+        guard !textView.text.isEmpty else { return }
         setPlaceholder()
     }
     
