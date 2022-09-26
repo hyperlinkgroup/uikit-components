@@ -13,7 +13,7 @@ extension MainController {
     // MARK: - Setup
     
     func setupCollectionView() {
-        collectionView.register(MainCell.self, forCellWithReuseIdentifier: "cellID")
+        collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.identifier)
         
         collectionView.backgroundColor = .systemGroupedBackground
         collectionView.showsVerticalScrollIndicator = false
@@ -29,7 +29,7 @@ extension MainController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as? MainCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCell.identifier, for: indexPath) as? MainCell else { return UICollectionViewCell() }
         cell.item = ExampleItem(rawValue: indexPath.item)
         return cell
     }
