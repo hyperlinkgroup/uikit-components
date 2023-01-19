@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  BaseCollectionViewController.swift
 //  
 //
 //  Created by Kevin Waltz on 05.09.22.
@@ -29,6 +29,6 @@ open class BaseCollectionViewController: UICollectionViewController, UICollectio
     
     // MARK: - Variables
     
-    let layout = UICollectionViewFlowLayout()
+    public let layout = UICollectionViewFlowLayout()
     
 }

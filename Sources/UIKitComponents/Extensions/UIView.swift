@@ -113,4 +113,51 @@ public extension UIView {
             heightAnchor.constraint(equalToConstant: constant)
         ])
     }
+    
+    /**
+     Hinzufügen eines Farbverlaufs.
+     
+     - Parameter color1: Farbe für Startpunkt
+     - Parameter color2: Farbe für Endpunkt
+     - Parameter startPoint: Startpunkt
+     - Parameter endPoint: Endpunkt
+     */
+    func addGradient(color1: UIColor, color2: UIColor, startPoint: CGPoint, endPoint: CGPoint) {
+        let gradient = CAGradientLayer()
+        gradient.colors = [color1.cgColor, color2.cgColor]
+        gradient.locations = [0, 1]
+        gradient.startPoint = startPoint
+        gradient.endPoint = endPoint
+        gradient.frame = layer.frame
+        
+        layer.insertSublayer(gradient, at: 0)
+    }
+    
+    
+    /**
+     Berechnen der Größe der StatusBar, NavigationBar und des unteren Paddings.
+     
+     - Parameter view: View des ViewControllers
+     - Parameter navigationController: NavigationController des ViewControllers
+     
+     - Returns: Größe als CGFloat & Bool, ob einen BottomInset gibt (d.h. es ist ein iPhone ohne Home Button)
+     */
+    func getHeights(in navigationController: UINavigationController? = nil) -> (size: CGFloat, hasBottomInset: Bool) {
+        let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 0
+        let bottomInset = safeAreaInsets.bottom
+        
+        return (statusBarHeight + navigationBarHeight + bottomInset, bottomInset > 0)
+    }
+    
+    /**
+     Wiedergabe von haptischem Feedback.
+     
+     - Parameter style: Stärke des haptischen Feedbacks
+     */
+    func generateHapticFeedback(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: style)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
+    }
 }

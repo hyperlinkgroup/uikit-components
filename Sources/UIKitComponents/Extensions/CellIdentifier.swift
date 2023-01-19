@@ -8,19 +8,19 @@
 
 import UIKit
 
-extension UICollectionViewCell {
-    public static var identifier: String {
+public extension UICollectionViewCell {
+    static var identifier: String {
         String(describing: self)
     }
 }
 
-extension UITableViewCell {
-    public static var identifier: String {
+public extension UITableViewCell {
+    static var identifier: String {
         String(describing: self)
     }
 }
-extension UITableViewHeaderFooterView {
-    public static var identifier: String {
+public extension UITableViewHeaderFooterView {
+    static var identifier: String {
         String(describing: self)
     }
 }

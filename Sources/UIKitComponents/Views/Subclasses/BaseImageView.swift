@@ -12,7 +12,7 @@ import UIKit
  */
 public class BaseImageView: UIImageView {
     
-    public init(image: UIImage,
+    public init(image: UIImage? = nil,
                 tintColor: UIColor? = nil,
                 cornerRadius: CGFloat = 0,
                 contentMode: UIView.ContentMode = .scaleAspectFit,
@@ -20,7 +20,13 @@ public class BaseImageView: UIImageView {
         
         super.init(frame: .zero)
         
-        self.image = image.withRenderingMode(isOriginal ? .alwaysOriginal : .alwaysTemplate)
+        if isOriginal {
+            self.image = image?.withRenderingMode(.alwaysOriginal)
+        } else {
+            self.image = image?.withRenderingMode(.alwaysTemplate)
+        }
+        
+        self.image = image?.withRenderingMode(isOriginal ? .alwaysOriginal : .alwaysTemplate)
         
         self.tintColor = tintColor
         
