@@ -7,9 +7,9 @@
 
 import UIKit
 
-class BaseButton: UIButton {
+open class BaseButton: UIButton {
     
-    override var isHighlighted: Bool {
+    public override var isHighlighted: Bool {
         didSet {
             UIView.animate(withDuration: 0.15) {
                 self.imageView?.alpha = self.isHighlighted ? 0.2 : 1
@@ -18,7 +18,7 @@ class BaseButton: UIButton {
     }
     
     
-    init(image: UIImage? = nil, tintColor: UIColor, backgroundColor: UIColor? = nil, cornerRadius: CGFloat = 0) {
+    public init(image: UIImage? = nil, tintColor: UIColor, backgroundColor: UIColor? = nil, cornerRadius: CGFloat = 0) {
         super.init(frame: .zero)
         
         self.setImage(image?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -30,7 +30,7 @@ class BaseButton: UIButton {
         self.layer.cornerRadius = cornerRadius
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
