@@ -76,7 +76,7 @@ public extension UIView {
             superview?.topAnchor.constraint(equalTo: topAnchor, constant: -paddingTop, priority: 750),
             superview?.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -paddingLeft, priority: 999),
             superview?.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -paddingBottom, priority: 750),
-            superview?.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -paddingLeft, priority: 999)
+            superview?.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -paddingRight, priority: 999)
         ].compactMap { $0 })
     }
     
