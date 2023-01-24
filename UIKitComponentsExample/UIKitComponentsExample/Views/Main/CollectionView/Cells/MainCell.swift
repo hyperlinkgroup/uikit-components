@@ -29,7 +29,7 @@ class MainCell: UICollectionViewCell {
     
     var item: ExampleItem? {
         didSet {
-            guard let item = item else { return }
+            guard let item else { return }
             titleLabel.text = item.title
         }
     }
