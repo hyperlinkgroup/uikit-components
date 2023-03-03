@@ -8,7 +8,7 @@ import UIKit
 
 public extension UIImage {
     /**
-     Das Originalbild ohne Skalierung wird in aufrechter Orientierung ausgegeben.
+     Returns the original image without scaling in horizontal orientation
      
      - Returns: Bild
      */
@@ -17,14 +17,15 @@ public extension UIImage {
     }
     
     /**
-     Anpassung der Orientierung eines Bildes.
      
-     In manchen Fällen werden Bilder trotz korrekter Anzeige bei der Auswahl gedreht, sodass diese nicht mehr horizontal sind. Hiermit wird das Bild standardmäßig in eine horizontale Ausrichtung gebracht.
+     Adapts the Orientation of an Image.
      
-     - Parameter size: Größe des Fotos (original oder skaliert)
-     - Parameter rect: Rahmen für Foto
+     In some cases Images will be rotated ignoring the correct orientation. This function fixes these problems and returns the image with horizontal orientation by default
+          
+     - Parameter size: Size of the Image (original or scaled)
+     - Parameter rect: Frame of the Image
      
-     - Returns: Bild
+     - Returns: Image
      */
     private func setImageOrientation(size: CGSize, rect: CGRect) -> UIImage {
         switch imageOrientation {
@@ -45,11 +46,11 @@ public extension UIImage {
     }
     
     /**
-     Zuschneiden eines Bildes in quadratische Form.
+     Crops an Image to square
      
-     - Parameter size: Seitenlänge
+     - Parameter size: Length of the side
      
-     - Returns: Bild
+     - Returns: Square Image
      */
     func cropToSquare(_ size: CGFloat) -> UIImage {
         guard let cgimage = self.cgImage else { return self }
@@ -92,15 +93,15 @@ public extension UIImage {
     }
     
     /**
-     Skalierung eines Bilder unter eine bestimmte Dateigröße.
+     Scales an Image to a given file size
+
+     Loop is continued until the result is lower than the given file size: compress rate with 0.9 -> longest side to 3840px, compress rate with 0.6 -> error
      
-     Schleife wird jeweils fortgeführt, wenn das Ergebnis nicht unter der angebenen Dateigröße liegt: Komprimierung mit 0.9 -> längste Seite auf 3840px -> Komprimierung mit 0.6 -> Fehler
+     - Parameter size: Size in MB
      
-     - Parameter size: Dateigröße in MB
-     
-     - Returns: Foto als Data-Wert
+     - Returns: Image Data
      */
-    public func scaleImageBelowSizeInMB(_ size: Double) -> Data? {
+    func scaleImageBelowSizeInMB(_ size: Double) -> Data? {
         guard let originalImage = self.jpegData(compressionQuality: 0.95) else { return nil }
         
         if self.isLargerThanMBSize(originalImage, size: size) {
@@ -123,23 +124,23 @@ public extension UIImage {
     }
     
     /**
-     Überprüfung der Dateigröße.
+     Checks the file size.
      
-     - Parameter image: Foto als Data-Wert zum Überprüfen
-     - Parameter size: Größe in MB
+     - Parameter image: Image Data
+     - Parameter size: Size in MB
      
-     - Returns: Wahr wenn größer als n MB, False wenn kleiner als n MB
+     - Returns: True if size is greater than the target size
      */
     func isLargerThanMBSize(_ image: Data, size: Double) -> Bool {
         Double(image.count / 1024 / 1024) > size
     }
     
     /**
-     Skalierung eines Fotos mit der längsten Seite.
+     Scales an image with the longest side
      
-     - Parameter longestSide: die maximale Länge der längsten Seite
+     - Parameter longestSide: maximum length of the longest side
      
-     - Returns: Foto
+     - Returns: Image
      */
     func resizeImageWithLongestSide(_ longestSide: CGFloat) -> UIImage {
         let originalWidth = size.width
@@ -164,10 +165,10 @@ public extension UIImage {
     }
     
     /**
-     Berechnen der Größe eines Fotos im Vollbildmodus.
+     Calculates the size of an Image in Fullscreen Mode
      
-     - Parameter view: View, in dem das Foto angezeigt wird
-     - Parameter initialImage: Foto, auf deren Basis die Größe berechnet wird
+     - Parameter view: View that will display the image
+     - Parameter initialImage: Image to be scaled
      
      - Returns: Frame
      */

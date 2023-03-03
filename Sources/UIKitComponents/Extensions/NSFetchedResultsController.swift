@@ -7,14 +7,10 @@
 
 import CoreData
 
-/**
- Überprüfung, ob der gegebene IndexPath im Controller existiert.
- 
- - Parameter indexPath: IndexPath, der überprüft wird
- 
- - Returns: Bool für Bestehen
- */
 public extension NSFetchedResultsController {
+    /**
+     Checks if given IndexPath exists in the current controller.
+     */
     @objc func isValid(indexPath: IndexPath) -> Bool {
         if let sections = self.sections,
            indexPath.section < sections.count,

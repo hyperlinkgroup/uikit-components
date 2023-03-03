@@ -13,29 +13,29 @@ struct ColorComponents {
 }
 
 extension UIColor {
-
+    
     func getComponents() -> ColorComponents? {
         
         guard let components = cgColor.components else { return nil }
         
         return  cgColor.numberOfComponents == 2 ? ColorComponents(r:components[0], g:components[0], b:components[0], a:components[1]) : ColorComponents(r:components[0], g:components[1], b:components[2], a:components[3])
     }
-
+    
     public func interpolateRGBColorTo(fraction: CGFloat) -> UIColor {
         
         guard let c1 = self.getComponents(), let c2 = UIColor.green.getComponents() else { return .gray }
         
         var multiplier = max(0, fraction)
         multiplier = min(1, fraction)
-
+        
         let red = c1.r + (c2.r - c1.r) * multiplier
         let green = c1.g + (c2.g - c1.g) * multiplier
         let blue = c1.b + (c2.b - c1.b) * multiplier
         let alpha = c1.a + (c2.a - c1.a) * multiplier
-
+        
         return UIColor.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-
+    
 }
 
 extension UIColor {

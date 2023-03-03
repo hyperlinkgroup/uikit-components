@@ -9,9 +9,9 @@ import UIKit
 public extension UIScreen {
     
     /**
-     Überprüfen der Pixeldichte des Displays.
+     Checks the density of pixels of a display.
      
-     Gibt Werte für Retina (2) oder RetinaHD (3) aus.
+     Returns Values for Retina (2) or RetinaHD (3)
      */
     var screenScale: CGFloat? {
         guard UIScreen.main.responds(to: #selector(getter: scale)) else {
@@ -22,9 +22,9 @@ public extension UIScreen {
     }
     
     /**
-     Pixeldichte des Displays zur Berechnung bestimmen.
-     
-     Wenn die Pixeldichte größer als 2 ist (RetinaHD) wird immer mit diesem Wert gerechnet, ansonsten mit 2 als Retina.
+     Returns the Screen Scale.
+
+     The minimum value is 2 (Retina)
      */
     static func getCurrentScreenScale() -> CGFloat {
         UIScreen.main.scale > 2 ? UIScreen.main.scale : 2

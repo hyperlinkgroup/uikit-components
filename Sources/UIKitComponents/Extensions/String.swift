@@ -9,12 +9,12 @@ import UIKit
 
 public extension String {
     /**
-     Berechnen der Höhe oder Breite basierend auf einem String.
+     Calculates the height and width based on the number of characters, font and view
      
-     - Parameter width: Die Breite des Views, in dem der Text sitzt
-     - Parameter font: Schriftgröße und -formatierung des Textes
+     - Parameter width: Width of the view containing the text
+     - Parameter font: Font of the text
      
-     - Returns: CGRect zum Nutzen der Breite (.width) oder Höhe (.height)
+     - Returns: CGRect  containing width and height
      */
     func estimateSize(width: CGFloat, font: UIFont) -> CGRect {
         let size = CGSize(width: width, height: 10000)
@@ -23,3 +23,4 @@ public extension String {
         return NSString(string: self).boundingRect(with: size, options: options, attributes: [.font: font], context: nil)
     }
 }
+

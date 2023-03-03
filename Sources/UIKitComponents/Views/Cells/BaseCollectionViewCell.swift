@@ -22,10 +22,10 @@ open class BaseCollectionViewCell: UICollectionViewCell {
     
     public var selectionColor: UIColor? {
         didSet {
-            guard let color = selectionColor else { return }
+            guard let selectionColor else { return }
             
             let selectionView = UIView()
-            selectionView.backgroundColor = color
+            selectionView.backgroundColor = selectionColor
             selectionView.layer.cornerRadius = 10
             
             selectedBackgroundView = selectionView
@@ -35,9 +35,7 @@ open class BaseCollectionViewCell: UICollectionViewCell {
     
     
     /**
-     Aktion nach der Initialisierung.
-     
-     Diese Aktion kann überschrieben werden, um im ViewController spezifische Aktionen nach der Initialisierung durchzuführen.
+     This function can be overwritten to execute specific actions after init
      */
     open func setupViews() { }
     

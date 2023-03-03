@@ -31,7 +31,7 @@ extension NSLayoutDimension {
         return con
     }
     
-    open func constraint(equalToOptionalConstant constant: CGFloat?) -> NSLayoutConstraint? {
+    public func constraint(equalToOptionalConstant constant: CGFloat?) -> NSLayoutConstraint? {
         guard let constant = constant else { return nil }
         return constraint(equalToConstant: constant)
     }

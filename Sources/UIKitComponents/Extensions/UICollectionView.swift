@@ -7,14 +7,10 @@
 
 import UIKit
 
-/**
- Überprüfung, ob der gegebene IndexPath im CollectionView existiert.
- 
- - Parameter indexPath: IndexPath, der überprüft wird
- 
- - Returns: Bool für Bestehen
- */
 public extension UICollectionView {
+    /**
+     Checks if given IndexPath exists in the current controller.
+     */
     func isValid(indexPath: IndexPath) -> Bool {
       indexPath.section < numberOfSections && indexPath.row < numberOfItems(inSection: indexPath.section)
     }
