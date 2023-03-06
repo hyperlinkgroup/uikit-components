@@ -4,7 +4,7 @@ This repository contains basic components for setting up UIKit components progra
 
 It is made by **[SPACE SQUAD](https://www.spacesquad.de)**! We make great software with ♥️ in Berlin.
 
-<img src="assets/README-spacesquad_logo_full.png" width="120">
+<img src=".github/assets/README-spacesquad_logo_full.png" width="120">
 
 ---
 
@@ -39,7 +39,7 @@ This package contains extensions for easily setting up AutoLayout as well as bas
 
 
 ## Screenshots
-<img src="assets/README-examples.png" width="300">
+<img src=".github/assets/README-examples.png" width="300">
 
 
 ## Installation
