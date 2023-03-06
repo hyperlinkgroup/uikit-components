@@ -113,4 +113,30 @@ public extension UIView {
             heightAnchor.constraint(equalToConstant: constant)
         ])
     }
+    
+    /**
+     Calculates the size of the StatusBar, NavigationBar and the bottom padding
+     
+     - Parameter navigationController
+     
+     - Returns: Size and Bool indicating there is a bottom inset  (= iPhone without Home Button)
+     */
+    func getHeights(in navigationController: UINavigationController? = nil) -> (size: CGFloat, hasBottomInset: Bool) {
+        let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        let navigationBarHeight = navigationController?.navigationBar.frame.height ?? 0
+        let bottomInset = safeAreaInsets.bottom
+        
+        return (statusBarHeight + navigationBarHeight + bottomInset, bottomInset > 0)
+    }
+    
+    /**
+     Creates haptic feedback
+     
+     - Parameter style: intensity of the haptic feedback
+     */
+    func generateHapticFeedback(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: style)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
+    }
 }
